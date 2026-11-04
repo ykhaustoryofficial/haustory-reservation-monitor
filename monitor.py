@@ -68,8 +68,7 @@ def fetch(path):
             entry = {"status": "unavailable", "http_status": exc.code}
         except Exception as exc:
             entry = {"status": "unavailable", "reason": str(exc)[:180]}
-        manifest["pages"][path] = entry
-        print(path, entry["status"])
+        return path, entry
 
 
 with ThreadPoolExecutor(max_workers=8) as pool:
