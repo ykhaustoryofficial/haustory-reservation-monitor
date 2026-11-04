@@ -1,0 +1,174 @@
+{
+  "captured_at_kst": "2026-11-04T12:03:03+09:00",
+  "base_url": "https://www.xn--399a9js72an4ic7dr7a0yl59rz1h.com",
+  "pages": {
+    "/": {
+      "status": "ok",
+      "file": "snapshots/current/index.html",
+      "sha256": "ecc042859c13792996ec2b5ac64c60a07f922d21f585fdb94e713e13bf5ff8f4",
+      "bytes": 59948
+    },
+    "/schedule.php": {
+      "status": "ok",
+      "file": "snapshots/current/schedule.php",
+      "sha256": "89dc9fd801af902a3f1332e52f62c5d3f2fb42363a81703e71e205544a6f0b47",
+      "bytes": 29294
+    },
+    "/reservation.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_reservation.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_reserve.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_booking.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_visit.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract/index.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract/reserve.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract/reservation.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reserve.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/booking.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation/index.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reserve/index.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/booking/index.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/apply.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/register.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/visit.php": {
+      "status": "ok",
+      "file": "snapshots/current/visit.php",
+      "sha256": "90702549176aa8fad74bdcad188afd4125509985c47249beada2ca879b35428d",
+      "bytes": 53719
+    },
+    "/visit_reservation.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/visit_reserve.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/visit_booking.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/visit/index.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/visit/reserve.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/visit/reservation.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/wish/wish.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/pc/register": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_guide.php": {
+      "status": "ok",
+      "file": "snapshots/current/contract_guide.php",
+      "sha256": "59d2d7d7c448c509264100c5bada8243bae8f1c264685d05e12a1b67617748fb",
+      "bytes": 33118
+    },
+    "/stamp_tax.php": {
+      "status": "ok",
+      "file": "snapshots/current/stamp_tax.php",
+      "sha256": "ab77212056d8cf793750363831a50b13d2221083f322e79b7ca878de8454bafb",
+      "bytes": 33128
+    },
+    "/reserve_contract.php": {
+      "status": "ok",
+      "file": "snapshots/current/reserve_contract.php",
+      "sha256": "8df83c8aaccc9bbd90ecbdc23a94f567ed32b79e15f02145ddccb3aab8629610",
+      "bytes": 33153
+    },
+    "/option_contract.php": {
+      "status": "ok",
+      "file": "snapshots/current/option_contract.php",
+      "sha256": "d3e4f55ead957dfe452efba25b75ef73f1d3d10e15d32bf4f04384554bff7167",
+      "bytes": 33143
+    },
+    "/loan_guide.php": {
+      "status": "ok",
+      "file": "snapshots/current/loan_guide.php",
+      "sha256": "8eceb38ddf1cb53a5be27e4e9a5fa39e9c4be0bd27d60b347401d55abb9d683d",
+      "bytes": 33322
+    },
+    "/js/common.js": {
+      "status": "ok",
+      "file": "snapshots/current/js/common.js",
+      "sha256": "97fcd048cf52965b175f5419072c35a09af68e0ff9930b986171a5ce562c0db3",
+      "bytes": 7081
+    },
+    "/js/main_v02.js": {
+      "status": "ok",
+      "file": "snapshots/current/js/main_v02.js",
+      "sha256": "e4768142ba7647d9883bcab343b59152653a3ff098e2773faeaaf20aaa972dd2",
+      "bytes": 32315
+    },
+    "/js/sub.js": {
+      "status": "ok",
+      "file": "snapshots/current/js/sub.js",
+      "sha256": "25b4f4e41d073bd5a41439f6821e48e1e6aa1c1a2bfeb56c836438b0a7528007",
+      "bytes": 742
+    },
+    "/js/mobile.js": {
+      "status": "ok",
+      "file": "snapshots/current/js/mobile.js",
+      "sha256": "6fe8c90a2f9975ab746b1b3c076019d94c0da83199329ff566cd4d18d2dd05e4",
+      "bytes": 1745
+    }
+  }
+}
