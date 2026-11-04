@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Archive public website source for independent review. No booking submissions."""
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import datetime as dt
 import hashlib
 import json
@@ -29,8 +30,8 @@ PATHS = [
  "/visit_contract.php", "/visit_contract_reserve.php",
  "/visit_contract_reservation.php", "/visit_contract_booking.php",
  "/visit/booking.php", "/visit/apply.php",
- "/booking/contract.php", "/booking/visit.php",
- "/reserve/contract.php", "/reserve/visit.php",
+ "/booking/contract.php",
+ "/reserve/contract.php",
  "/reservation/contract.php", "/reservation/visit.php",
  "/contract_guide.php", "/stamp_tax.php",
  "/reserve_contract.php", "/option_contract.php", "/loan_guide.php",
@@ -41,33 +42,43 @@ ROOT.mkdir(parents=True, exist_ok=True)
 timestamp = dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).isoformat(timespec="seconds")
 manifest = {"captured_at_kst": timestamp, "base_url": BASE, "pages": {}}
 
-for path in PATHS:
-    req = urllib.request.Request(BASE + path, headers={
-        "User-Agent": "Mozilla/5.0 (compatible; reservation-source-archive/1.0)",
-        "Accept": "text/html,application/javascript,*/*"})
-    entry = {}
-    try:
-        with urllib.request.urlopen(req, timeout=18) as response:
-            body = response.read(2_000_000)
-            url = response.geturl()
-            ctype = response.headers.get("Content-Type", "")
-            if response.status != 200 or url.rstrip("/") != (BASE + path).rstrip("/"):
-                raise ValueError("redirect or unexpected response")
-            if not any(x in ctype.lower() for x in ("html", "javascript", "text/plain")):
-                raise ValueError("unexpected content type")
-            content = body.decode("utf-8", errors="replace")
-            if re.search(r"<title>\s*(?:404|not found|error)", content, re.I):
-                raise ValueError("error page")
-            relative = path.lstrip("/") or "index.html"
-            target = ROOT / relative
-            target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text(content, encoding="utf-8")
-            entry = {"status": "ok", "file": str(target), "sha256": hashlib.sha256(body).hexdigest(), "bytes": len(body)}
-    except urllib.error.HTTPError as exc:
-        entry = {"status": "unavailable", "http_status": exc.code}
-    except Exception as exc:
-        entry = {"status": "unavailable", "reason": str(exc)[:180]}
-    manifest["pages"][path] = entry
-    print(path, entry["status"])
+def fetch(path):
+        req = urllib.request.Request(BASE + path, headers={
+            "User-Agent": "Mozilla/5.0 (compatible; reservation-source-archive/1.0)",
+            "Accept": "text/html,application/javascript,*/*"})
+        entry = {}
+        try:
+            with urllib.request.urlopen(req, timeout=10) as response:
+                body = response.read(2_000_000)
+                url = response.geturl()
+                ctype = response.headers.get("Content-Type", "")
+                if response.status != 200 or url.rstrip("/") != (BASE + path).rstrip("/"):
+                    raise ValueError("redirect or unexpected response")
+                if not any(x in ctype.lower() for x in ("html", "javascript", "text/plain")):
+                    raise ValueError("unexpected content type")
+                content = body.decode("utf-8", errors="replace")
+                if re.search(r"<title>\s*(?:404|not found|error)", content, re.I):
+                    raise ValueError("error page")
+                relative = path.lstrip("/") or "index.html"
+                target = ROOT / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(content, encoding="utf-8")
+                entry = {"status": "ok", "file": str(target), "sha256": hashlib.sha256(body).hexdigest(), "bytes": len(body)}
+        except urllib.error.HTTPError as exc:
+            entry = {"status": "unavailable", "http_status": exc.code}
+        except Exception as exc:
+            entry = {"status": "unavailable", "reason": str(exc)[:180]}
+        manifest["pages"][path] = entry
+        print(path, entry["status"])
+
+
+with ThreadPoolExecutor(max_workers=8) as pool:
+    for path, entry in pool.map(fetch, PATHS):
+        manifest["pages"][path] = entry
+        print(path, entry["status"], flush=True)
+
+manifest["expected_paths"] = len(PATHS)
+manifest["completed_paths"] = len(manifest["pages"])
+manifest["complete"] = manifest["expected_paths"] == manifest["completed_paths"]
 
 Path("snapshots/manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
