@@ -42,5 +42,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh issue create --title "예약 관련 소스 변경 감지 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')" --body-file report.md
+          gh issue create --assignee ykhaustoryofficial --title "예약 관련 소스 변경 감지 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')" --body-file report.md
 
