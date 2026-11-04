@@ -1,7 +1,7 @@
 name: Reservation source archive
 on:
   schedule:
-    - cron: '15,45 23,0-10 * * *'
+    - cron: '17,47 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -33,5 +33,15 @@ jobs:
           git add snapshots/
           if ! git diff --cached --quiet; then
             git commit -m "Archive public site source"
-            git push
+            for attempt in 1 2 3; do
+              if git push; then
+                exit 0
+              fi
+              echo "Push conflict, rebasing (attempt $attempt)"
+              git fetch origin main
+              git rebase origin/main
+              sleep 5
+            done
+            echo "Failed to publish archive after retries" >&2
+            exit 1
           fi
