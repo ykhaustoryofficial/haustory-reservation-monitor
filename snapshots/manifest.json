@@ -1,17 +1,17 @@
 {
-  "captured_at_kst": "2026-11-04T15:50:43+09:00",
+  "captured_at_kst": "2026-11-04T17:23:03+09:00",
   "base_url": "https://www.xn--399a9js72an4ic7dr7a0yl59rz1h.com",
   "pages": {
     "/": {
       "status": "ok",
       "file": "snapshots/current/index.html",
-      "sha256": "473dee8f419da5aa6de6dee2e9868821904f65a5848d434e00bedb8d199183eb",
+      "sha256": "2285a394e1afa44c390d4e9c0ea87e1f343f923e4c4551f6f64dc03afd149659",
       "bytes": 59948
     },
     "/schedule.php": {
       "status": "ok",
       "file": "snapshots/current/schedule.php",
-      "sha256": "9950cad74a428aa21b3169126df403acd008dad7011121a83b431204df68455b",
+      "sha256": "9b0d9330c0d538fe51d06b291f853daeb7292842961cf8eb247587786ff91c73",
       "bytes": 29294
     },
     "/reservation.php": {
@@ -81,7 +81,7 @@
     "/visit.php": {
       "status": "ok",
       "file": "snapshots/current/visit.php",
-      "sha256": "67a1f2918e097ad326309f6ca2492077223a63782cd6d2a3e06fbc56eafb90d8",
+      "sha256": "9b1fb08006fc5a9baff25dbeb3ded64b5eef0ec86cd2afb389afa84ba483ac79",
       "bytes": 53719
     },
     "/visit_reservation.php": {
@@ -219,31 +219,31 @@
     "/contract_guide.php": {
       "status": "ok",
       "file": "snapshots/current/contract_guide.php",
-      "sha256": "032d289f536e56f6e9575edc1784916fd0582fe638745b1111ab27fd798af316",
+      "sha256": "3ac469d023f5bf818dff6b812a2449a619577187091091c56727fd7c67747df5",
       "bytes": 33118
     },
     "/stamp_tax.php": {
       "status": "ok",
       "file": "snapshots/current/stamp_tax.php",
-      "sha256": "99e04b3ce51d94e254b697db4db507bbda85513bf3dde69da436ad8719b84cca",
+      "sha256": "f237d287a74edda62c5dc4b073cd093b55059811057b943a8631ddca48464e5f",
       "bytes": 33128
     },
     "/reserve_contract.php": {
       "status": "ok",
       "file": "snapshots/current/reserve_contract.php",
-      "sha256": "ee9e281add96d6b57f0cff5e105437f4843d2daa34b726d08fd152688dfae5fb",
+      "sha256": "9f6e06561686237db5506a9c8448eab3873e235a37aed472c98d45673dae6c15",
       "bytes": 33153
     },
     "/option_contract.php": {
       "status": "ok",
       "file": "snapshots/current/option_contract.php",
-      "sha256": "e036841e650628996e736444b9ab0cb232e7112fb08df99f41080022ab4e091c",
+      "sha256": "ee86f92975451fb74f9400d072d443d003a94d25845cc184f72db77bc44d0ce0",
       "bytes": 33143
     },
     "/loan_guide.php": {
       "status": "ok",
       "file": "snapshots/current/loan_guide.php",
-      "sha256": "6631a0061372a819c8acb0f43ba1d70258c0f38658742f3608b8dc43354c1f5d",
+      "sha256": "b951a5cd7d2e206695c67a7aee873699c11238b6845d6001941155426ca177de",
       "bytes": 33322
     },
     "/js/common.js": {
