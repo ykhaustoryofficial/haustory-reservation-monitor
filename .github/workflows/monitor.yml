@@ -1,21 +1,15 @@
-name: Reservation source monitor
-
+name: Reservation source archive
 on:
   schedule:
-    # UTC 23:00 = 08:00 KST; UTC 00:00-10:00 = 09:00-19:00 KST
     - cron: '0 23,0-10 * * *'
   workflow_dispatch:
-
 permissions:
   contents: write
-  issues: write
-
 concurrency:
-  group: reservation-monitor
+  group: reservation-source-archive
   cancel-in-progress: false
-
 jobs:
-  monitor:
+  archive:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -25,22 +19,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Fetch and compare public source
-        id: monitor
+      - name: Archive publicly accessible source
         run: python monitor.py
-      - name: Commit baseline for next comparison
+      - name: Commit captured source and manifest
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/baseline.json
+          git add snapshots/
           if ! git diff --cached --quiet; then
-            git commit -m "Update observed site baseline"
+            git commit -m "Archive public site source"
             git push
           fi
-      - name: Notify only on reservation-related source changes
-        if: steps.monitor.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh issue create --assignee ykhaustoryofficial --title "예약 관련 소스 변경 감지 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')" --body-file report.md
-
