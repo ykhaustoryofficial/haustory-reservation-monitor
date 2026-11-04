@@ -1,0 +1,45 @@
+name: Reservation source monitor
+
+on:
+  schedule:
+    # UTC 23:00 = 08:00 KST; UTC 00:00-10:00 = 09:00-19:00 KST
+    - cron: '0 23,0-10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: reservation-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch and compare public source
+        id: monitor
+        run: python monitor.py
+      - name: Commit baseline for next comparison
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/baseline.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update observed site baseline"
+            git push
+          fi
+      - name: Notify only on reservation-related source changes
+        if: steps.monitor.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --title "예약 관련 소스 변경 감지 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')" --body-file report.md
