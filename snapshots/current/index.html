@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>역곡지구 하우스토리</title>
-        <link rel="icon" href="/favicon.ico?v=1793863887" />
+        <link rel="icon" href="/favicon.ico?v=1793868810" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <meta property="og:type" content="website" />
@@ -58,11 +58,11 @@
         <!-- viewport -->
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <!-- css -->
-        <link rel="stylesheet" href="./css/font.css?1793863887">
+        <link rel="stylesheet" href="./css/font.css?1793868810">
         <link rel="stylesheet" href="./css/fontawesome.css">
         <link rel="stylesheet" href="./css/swiper.min.css">
-        <link rel="stylesheet" href="./css/common.css?1793863887">
-        <link rel="stylesheet" href="./css/style.css?1793863887">
+        <link rel="stylesheet" href="./css/common.css?1793868810">
+        <link rel="stylesheet" href="./css/style.css?1793868810">
 
         <style>
             /* 계약안내(6번째) 메뉴만 폭 넓힘 - PC */
@@ -73,6 +73,23 @@
 
             .header .drop_menu .drop > li:nth-child(6) a {
                 white-space: nowrap;
+            }
+
+            /* 방문예약(8번째) 메뉴 - PC */
+            .header .nav li#m08,
+            .header .drop_menu .drop > li:nth-child(8) {
+                width: 190px;
+            }
+
+            .header .drop_menu .drop > li:nth-child(8) a {
+                white-space: nowrap;
+            }
+
+            @media screen and (max-width: 1700px) {
+                .header .nav li#m08,
+                .header .drop_menu .drop > li:nth-child(8) {
+                    width: 160px;
+                }
             }
 
             @media screen and (max-width: 1700px) {
@@ -157,7 +174,7 @@
 
         <script src="./js/swiper.min.js"></script>
         <script src="./js/browser.js"></script>
-        <script src="./js/common.js?1793863887"></script>
+        <script src="./js/common.js?1793868810"></script>
 
         <link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
         <script src="./js/jquery.mCustomScrollbar.min.js"></script>
@@ -282,7 +299,7 @@
                         <!-- 계약안내 대메뉴 -->
                         <li id="m06"><a href="./contract_guide.php" title="계약안내" class="">계약안내</a></li>
                         <li id="m07"><a href="./registration.php" title="홍보센터" class="">홍보센터</a></li>
-
+                        
 
                     </ul>
                 </nav>
@@ -355,7 +372,7 @@
                                 <li><a href="./promotion.php" title="홍보영상" class="">홍보영상</a></li>
                             </ul>
                         </li>
-
+                        
 
                     </ul>
 
@@ -386,8 +403,8 @@
 <script src="./js/scrolloverflow.min.js"></script>
 <script src="./js/fullpage.js"></script>
 
-<link rel="stylesheet" href="./css/main_v02.css?1793863887">
-<script src="./js/main_v02.js?1793863887"></script>
+<link rel="stylesheet" href="./css/main_v02.css?1793868810">
+<script src="./js/main_v02.js?1793868810"></script>
 <style>
     .regi_btn {
         position: absolute;
@@ -1236,8 +1253,8 @@
 
                 <a href="./contract_guide.php" class="popup-link popupContract-btn--guide" aria-label="정당계약 안내"></a>
                 <a href="./stamp_tax.php" class="popup-link popupContract-btn--tax" aria-label="인지세 납부안내"></a>
-                <a href="javascript:;" class="popup-link popupContract-btn--reserve" onclick="alertContractNotOpen();" aria-label="방문 예약 바로가기"></a>
-            </div>
+                                    <a href="javascript:;" class="popup-link popupContract-btn--reserve" onclick="alertContractNotOpen();" aria-label="방문 예약 바로가기"></a>
+                            </div>
 
             <div class="popup-bottom">
                 <button type="button" class="btn-today" data-today>오늘 하루 창 닫기</button>

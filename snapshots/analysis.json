@@ -1,12 +1,26 @@
 {
-  "captured_at_kst": "2026-11-05T16:31:26+09:00",
+  "captured_at_kst": "2026-11-05T17:53:29+09:00",
   "mode": "passive_source_only",
   "api_requests_performed": 0,
-  "previous_captured_at_kst": "2026-11-05T16:20:43+09:00",
-  "status_changes": [],
+  "previous_captured_at_kst": "2026-11-05T16:31:26+09:00",
+  "status_changes": [
+    {
+      "path": "/reservation_contract.php",
+      "before": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      },
+      "after": {
+        "status": "ok",
+        "http_status": null,
+        "reason": null
+      }
+    }
+  ],
   "source_signals": {
     "/": {
-      "sha256": "d314e12ffa45550ead4722880b09437db14938a1b82f2683dca1bef1aa1431f4",
+      "sha256": "f5bf4b5cb2d4edaa429eee9f8cc63dfc986aaa79b6cf67b99b0f94fdd03c785a",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": true,
@@ -21,7 +35,7 @@
       }
     },
     "/reservation.php": {
-      "sha256": "67225235337b723c057a32564298ba4b04a801def684e67a3636522fe9fce4b5",
+      "sha256": "f2f7a90bab6176ab757ec1b0a9f373c7cdf04481c01d4eb4a0e30b37fae3219a",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
@@ -35,8 +49,23 @@
         "november_reference": false
       }
     },
+    "/reservation_contract.php": {
+      "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
+      "changed_since_previous": true,
+      "signals": {
+        "contract_alert": false,
+        "reserve_alert": false,
+        "date_picker": false,
+        "time_picker": false,
+        "booking_submit": false,
+        "date_api_reference": false,
+        "time_api_reference": false,
+        "booking_api_reference": false,
+        "november_reference": false
+      }
+    },
     "/reserve_contract.php": {
-      "sha256": "ec8d83c1b9fa69392a731c05a3f40b32a79e1d525b9b76e62e34673524ce3c3e",
+      "sha256": "bfa65ea21569294562198ec952b30be1c1f90236c4ca605d5450cf9a456d26db",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,

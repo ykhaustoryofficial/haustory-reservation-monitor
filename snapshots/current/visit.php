@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>역곡지구 하우스토리</title>
-        <link rel="icon" href="/favicon.ico?v=1793863888" />
+        <link rel="icon" href="/favicon.ico?v=1793868811" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <meta property="og:type" content="website" />
@@ -58,11 +58,11 @@
         <!-- viewport -->
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <!-- css -->
-        <link rel="stylesheet" href="./css/font.css?1793863888">
+        <link rel="stylesheet" href="./css/font.css?1793868811">
         <link rel="stylesheet" href="./css/fontawesome.css">
         <link rel="stylesheet" href="./css/swiper.min.css">
-        <link rel="stylesheet" href="./css/common.css?1793863888">
-        <link rel="stylesheet" href="./css/style.css?1793863888">
+        <link rel="stylesheet" href="./css/common.css?1793868811">
+        <link rel="stylesheet" href="./css/style.css?1793868811">
 
         <style>
             /* 계약안내(6번째) 메뉴만 폭 넓힘 - PC */
@@ -73,6 +73,23 @@
 
             .header .drop_menu .drop > li:nth-child(6) a {
                 white-space: nowrap;
+            }
+
+            /* 방문예약(8번째) 메뉴 - PC */
+            .header .nav li#m08,
+            .header .drop_menu .drop > li:nth-child(8) {
+                width: 190px;
+            }
+
+            .header .drop_menu .drop > li:nth-child(8) a {
+                white-space: nowrap;
+            }
+
+            @media screen and (max-width: 1700px) {
+                .header .nav li#m08,
+                .header .drop_menu .drop > li:nth-child(8) {
+                    width: 160px;
+                }
             }
 
             @media screen and (max-width: 1700px) {
@@ -157,7 +174,7 @@
 
         <script src="./js/swiper.min.js"></script>
         <script src="./js/browser.js"></script>
-        <script src="./js/common.js?1793863888"></script>
+        <script src="./js/common.js?1793868811"></script>
 
         <link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
         <script src="./js/jquery.mCustomScrollbar.min.js"></script>
@@ -282,7 +299,7 @@
                         <!-- 계약안내 대메뉴 -->
                         <li id="m06"><a href="./contract_guide.php" title="계약안내" class="">계약안내</a></li>
                         <li id="m07"><a href="./registration.php" title="홍보센터" class="">홍보센터</a></li>
-
+                        
 
                     </ul>
                 </nav>
@@ -355,7 +372,7 @@
                                 <li><a href="./promotion.php" title="홍보영상" class="">홍보영상</a></li>
                             </ul>
                         </li>
-
+                        
 
                     </ul>
 
@@ -376,8 +393,8 @@
 
     </div>
 
-<link rel="stylesheet" href="./css/sub.css?1793863888">
-<script src="./js/sub.js?1793863888"></script>
+<link rel="stylesheet" href="./css/sub.css?1793868811">
+<script src="./js/sub.js?1793868811"></script>
 
 
 
@@ -414,7 +431,7 @@
                 <li><a href="./contract_guide.php" class="">계약안내</a></li>
                 <!-- 계약안내 추가로 대메뉴 7개 -->
                 <li><a href="./registration.php" class="">홍보센터</a></li>
-
+                
 			</ul>
 			<span class="arrow"></span>
 		</li>
