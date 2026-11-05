@@ -5,6 +5,8 @@ import datetime as dt
 import hashlib
 import json
 import re
+import html
+from urllib.parse import urljoin, urlsplit, unquote
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -37,6 +39,35 @@ PATHS = [
  "/reserve_contract.php", "/option_contract.php", "/loan_guide.php",
  "/js/common.js", "/js/main_v02.js", "/js/sub.js", "/js/mobile.js",
 ]
+# Discover additional same-site HTML/JS links, including links in comments and inline scripts.
+# Only inspect public GET endpoints; never submit forms or follow action URLs.
+MAX_DISCOVERED = 80
+MAX_TOTAL = 150
+ASSET_RE = re.compile(r"""(?:href|src|action|data-url|url)\s*=\s*["']([^"'#]+)["']|["']((?:https?://[^"'\s<>]+|(?:\.{0,2}/|/)[\w./%-]+\.(?:php|html?|js)(?:\?[^"'\s<>]*)?))["']""", re.I)
+INTEREST_RE = re.compile(r"(reserv|book|contract|visit|apply|register|appoint|schedule|calendar|time|date|예약|계약|방문|신청)", re.I)
+SKIP_RE = re.compile(r"(logout|delete|remove|cancel|payment|pay|submit|download|admin|login|auth|\.pdf$)", re.I)
+
+def discover(source_path, content):
+    found = set()
+    source_url = urljoin(BASE + "/", source_path.lstrip("/"))
+    for match in ASSET_RE.finditer(html.unescape(content)):
+        raw = (match.group(1) or match.group(2) or "").strip()
+        if not raw or raw.startswith(("javascript:", "mailto:", "tel:", "data:", "#")):
+            continue
+        full = urljoin(source_url, raw)
+        parsed = urlsplit(full)
+        if parsed.netloc.lower() != urlsplit(BASE).netloc.lower():
+            continue
+        path = unquote(parsed.path)
+        if not path.startswith("/") or ".." in path.split("/"):
+            continue
+        if SKIP_RE.search(path) or not INTEREST_RE.search(path):
+            continue
+        if not re.search(r"\.(?:php|html?|js)$", path, re.I):
+            continue
+        found.add(path)
+    return found
+
 ROOT = Path("snapshots/current")
 ROOT.mkdir(parents=True, exist_ok=True)
 timestamp = dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).isoformat(timespec="seconds")
@@ -71,12 +102,31 @@ def fetch(path):
         return path, entry
 
 
+# First capture the established candidate list, then scan successful public sources
+# for new, previously unmonitored reservation-related endpoints.
 with ThreadPoolExecutor(max_workers=8) as pool:
     for path, entry in pool.map(fetch, PATHS):
         manifest["pages"][path] = entry
         print(path, entry["status"], flush=True)
 
-manifest["expected_paths"] = len(PATHS)
+discovered = set()
+for source_path, entry in list(manifest["pages"].items()):
+    if entry["status"] != "ok" or not source_path.lower().endswith((".php", ".html", ".js", "/")):
+        continue
+    try:
+        source_file = Path(entry["file"])
+        discovered.update(discover(source_path, source_file.read_text(encoding="utf-8")))
+    except (OSError, UnicodeError):
+        pass
+new_paths = sorted(discovered - set(PATHS))[:max(0, min(MAX_DISCOVERED, MAX_TOTAL - len(PATHS)))]
+with ThreadPoolExecutor(max_workers=8) as pool:
+    for path, entry in pool.map(fetch, new_paths):
+        manifest["pages"][path] = entry
+        print("DISCOVERED", path, entry["status"], flush=True)
+manifest["discovered_paths"] = new_paths
+manifest["discovered_total"] = len(discovered - set(PATHS))
+manifest["discovery_truncated"] = len(discovered - set(PATHS)) > len(new_paths)
+manifest["expected_paths"] = len(PATHS) + len(new_paths)
 manifest["completed_paths"] = len(manifest["pages"])
 manifest["complete"] = manifest["expected_paths"] == manifest["completed_paths"]
 
