@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>역곡지구 하우스토리</title>
-        <link rel="icon" href="/favicon.ico?v=1793853848" />
+        <link rel="icon" href="/favicon.ico?v=1793863251" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <meta property="og:type" content="website" />
@@ -58,11 +58,11 @@
         <!-- viewport -->
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <!-- css -->
-        <link rel="stylesheet" href="./css/font.css?1793853848">
+        <link rel="stylesheet" href="./css/font.css?1793863251">
         <link rel="stylesheet" href="./css/fontawesome.css">
         <link rel="stylesheet" href="./css/swiper.min.css">
-        <link rel="stylesheet" href="./css/common.css?1793853848">
-        <link rel="stylesheet" href="./css/style.css?1793853848">
+        <link rel="stylesheet" href="./css/common.css?1793863251">
+        <link rel="stylesheet" href="./css/style.css?1793863251">
 
         <style>
             /* 계약안내(6번째) 메뉴만 폭 넓힘 - PC */
@@ -83,6 +83,72 @@
             }
         </style>
 
+        <style>
+            /* 옵션안내 강조 */
+
+            /* 대메뉴 '세대안내' 옆 작은 점 : 은은하게 깜빡임 */
+            .menu-dot {
+                position: relative;
+            }
+
+            .menu-dot::after {
+                content: "";
+                position: absolute;
+                top: -3px;
+                right: -11px;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: #ff6b00;
+                animation: menuDotPulse 2.4s ease-in-out infinite;
+            }
+
+            @keyframes menuDotPulse {
+                0%, 100% {
+                    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.45);
+                }
+                50% {
+                    box-shadow: 0 0 0 6px rgba(255, 107, 0, 0);
+                }
+            }
+
+            /* 서브메뉴 '옵션안내' : 연한 네이비 알약 배경 */
+            .menu-pill {
+                display: inline-block !important;
+                padding: 3px 14px;
+                border-radius: 999px;
+                background: #eef2f9;
+                color: #003477 !important;
+                font-weight: 600;
+                line-height: 1.5;
+            }
+
+            .menu-pill:hover {
+                background: #003477;
+                color: #fff !important;
+            }
+
+            /* 모바일 메뉴 크기 보정 (750px 기준 화면) */
+            .side-menu .menu-dot::after {
+                top: 2px;
+                right: -18px;
+                width: 12px;
+                height: 12px;
+            }
+
+            .side-menu .menu-pill {
+                padding: 4px 16px;
+                margin: -4px 0 -4px -16px;
+            }
+
+            /* 움직임 최소화 설정한 사용자는 깜빡임 끔 */
+            @media (prefers-reduced-motion: reduce) {
+                .menu-dot::after {
+                    animation: none;
+                }
+            }
+        </style>
+
         <!-- js -->
         <script  src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script src="./js/vendor/prefixfree.min.js"></script>
@@ -91,7 +157,7 @@
 
         <script src="./js/swiper.min.js"></script>
         <script src="./js/browser.js"></script>
-        <script src="./js/common.js?1793853848"></script>
+        <script src="./js/common.js?1793863251"></script>
 
         <link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
         <script src="./js/jquery.mCustomScrollbar.min.js"></script>
@@ -210,7 +276,7 @@
                         <li id="m01"><a href="./business.php" title="사업안내" class="">사업안내</a></li>
                         <li id="m02"><a href="./premium.php" title="프리미엄" class="">프리미엄</a></li>
                         <li id="m03"><a href="./layout.php" title="단지안내" class="">단지안내</a></li>
-                        <li id="m04"><a href="./unit.php" title="세대안내" class="">세대안내</a></li>
+                        <li id="m04"><a href="./unit.php" title="세대안내" class="menu-dot">세대안내</a></li>
                         <li id="m05"><a href="./schedule.php" title="분양안내" class="">분양안내</a></li>
 
                         <!-- 계약안내 대메뉴 -->
@@ -258,7 +324,7 @@
                         </li>
                         <li rel="m04">
                             <ul class="sub_menu">
-                                <li><a href="./unit.php" title="UNIT PLAN" class="">UNIT PLAN</a></li>
+                                <li><a href="./unit.php" title="옵션안내" class="menu-pill">옵션안내</a></li>
                                                                     <li><a href="./interior.php" title="인테리어" class="">인테리어</a></li>
                                     <li><a href="./modelhouse_vr.php" title="E-모델하우스" class="">E-모델하우스</a></li>
                                 
@@ -310,8 +376,8 @@
 
     </div>
 
-<link rel="stylesheet" href="./css/sub.css?1793853848">
-<script src="./js/sub.js?1793853848"></script>
+<link rel="stylesheet" href="./css/sub.css?1793863251">
+<script src="./js/sub.js?1793863251"></script>
 
 
 
