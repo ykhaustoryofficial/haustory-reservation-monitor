@@ -1,12 +1,12 @@
 {
-  "captured_at_kst": "2026-11-06T08:35:28+09:00",
+  "captured_at_kst": "2026-11-06T08:52:49+09:00",
   "mode": "passive_source_only",
   "api_requests_performed": 0,
-  "previous_captured_at_kst": "2026-11-06T06:21:52+09:00",
+  "previous_captured_at_kst": "2026-11-06T08:35:28+09:00",
   "status_changes": [],
   "source_signals": {
     "/": {
-      "sha256": "96046a6cdbeca412408e12dce2a8f2a69625e9817ebb576f8395aa100dd98cfd",
+      "sha256": "5849433c76d627d1742f9bf75fcab0518ff11d90c23bddd83195db1277932dab",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": true,
@@ -21,7 +21,7 @@
       }
     },
     "/reservation.php": {
-      "sha256": "ec3d564fc7827212cd9f636e5ccad4c62008155192ee2f37ba007d62a4dd4861",
+      "sha256": "6baf30a93d043ad6eff796b581f003afccaac3cfb4b11151bc0b98eb29e9b68c",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
@@ -51,7 +51,7 @@
       }
     },
     "/reserve_contract.php": {
-      "sha256": "af16a5d4783e96f5cbe557d2fae4ddd779dc8d07c527f0e0d92373aac0b9a732",
+      "sha256": "cabe755b3644f9ed9bb051104a4b9374be923352a2606f7e49dcc870965588f0",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
