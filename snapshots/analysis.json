@@ -1,12 +1,12 @@
 {
-  "captured_at_kst": "2026-11-06T08:52:49+09:00",
+  "captured_at_kst": "2026-11-06T09:02:21+09:00",
   "mode": "passive_source_only",
   "api_requests_performed": 0,
-  "previous_captured_at_kst": "2026-11-06T08:35:28+09:00",
+  "previous_captured_at_kst": "2026-11-06T08:52:49+09:00",
   "status_changes": [],
   "source_signals": {
     "/": {
-      "sha256": "5849433c76d627d1742f9bf75fcab0518ff11d90c23bddd83195db1277932dab",
+      "sha256": "450834f57e260ba2a4b6ccecf9c755eb3e7fb6ad3b28fdeea96e7ccf27916f86",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": true,
@@ -21,7 +21,7 @@
       }
     },
     "/reservation.php": {
-      "sha256": "6baf30a93d043ad6eff796b581f003afccaac3cfb4b11151bc0b98eb29e9b68c",
+      "sha256": "ad744bd4f8ba1487b5e376e3c7302df0c75636988259f5e44e8a8e7982d96a27",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
@@ -51,7 +51,7 @@
       }
     },
     "/reserve_contract.php": {
-      "sha256": "cabe755b3644f9ed9bb051104a4b9374be923352a2606f7e49dcc870965588f0",
+      "sha256": "7e5fc4991f56658fdafc846e70d44401e2cf792b0b311b06e566893f8dfa55ad",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
@@ -64,6 +64,30 @@
         "booking_api_reference": false,
         "november_reference": false
       }
+    }
+  },
+  "contract_reservation_page": {
+    "path": "/reservation_contract.php",
+    "url": "https://www.xn--399a9js72an4ic7dr7a0yl59rz1h.com/reservation_contract.php",
+    "captured_at_kst": "2026-11-06T09:02:21+09:00",
+    "status": "ok",
+    "http_status": null,
+    "reason": null,
+    "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
+    "previous_sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
+    "response_changed": false,
+    "previous_status": "ok",
+    "classification": "closed_notice_redirect",
+    "evidence": {
+      "bytes": 117,
+      "script_only": true,
+      "closed_notice": true,
+      "redirect": true,
+      "form": false,
+      "date_picker": false,
+      "time_picker": false,
+      "submit_control": false,
+      "api_references_in_source_only": []
     }
   }
 }
