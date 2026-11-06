@@ -181,6 +181,69 @@ for path, entry in manifest["pages"].items():
             "changed_since_previous": (old or {}).get("sha256") != entry.get("sha256"),
             "signals": signals,
         }
+# Dedicated offline inspection for the contract reservation landing page.
+# Inspect only the response already captured by fetch(); never query booking APIs.
+contract_path = "/reservation_contract.php"
+contract_entry = manifest["pages"].get(contract_path, {})
+contract_old = previous_pages.get(contract_path, {})
+contract_report = {
+    "path": contract_path,
+    "url": BASE + contract_path,
+    "captured_at_kst": timestamp,
+    "status": contract_entry.get("status", "missing"),
+    "http_status": contract_entry.get("http_status"),
+    "reason": contract_entry.get("reason"),
+    "sha256": contract_entry.get("sha256"),
+    "previous_sha256": contract_old.get("sha256"),
+    "response_changed": (
+        contract_entry.get("sha256") != contract_old.get("sha256")
+        if contract_entry.get("status") == "ok" and contract_old.get("status") == "ok"
+        else None
+    ),
+    "previous_status": contract_old.get("status"),
+    "classification": "not_captured",
+    "evidence": {},
+}
+if contract_entry.get("status") == "ok":
+    try:
+        contract_source = Path(contract_entry["file"]).read_text(encoding="utf-8")
+        lower_source = contract_source.lower()
+        # A page that only alerts and redirects must not count as an open booking form.
+        redirect = bool(re.search(r"(?:location\\.(?:href|replace|assign)|window\\.location)\\s*(?:=|\\()", contract_source, re.I))
+        closed_notice = "진행중인 방문예약 기간이 아닙니다" in contract_source
+        form = bool(re.search(r"<form\\b", contract_source, re.I))
+        date_input = bool(re.search(r"<input\\b[^>]*type\\s*=\\s*['\\\"]?date\\b", contract_source, re.I))
+        time_input = bool(re.search(r"<input\\b[^>]*type\\s*=\\s*['\\\"]?time\\b", contract_source, re.I))
+        date_picker = "selectReserveDate(" in contract_source or date_input
+        time_picker = "selectReserveTime(" in contract_source or time_input
+        submit_control = bool(re.search(r"<button\\b|type\\s*=\\s*['\\\"]?submit\\b|On_Booking\\s*\\(", contract_source, re.I))
+        api_references = sorted(set(re.findall(r"/proxy/visitors/json/[a-z0-9_/-]+", contract_source, re.I)))
+        script_only = bool(re.fullmatch(r"\\s*<script\\b[^>]*>.*?</script>\\s*", contract_source, re.I | re.S))
+        contract_report["evidence"] = {
+            "bytes": contract_entry.get("bytes"),
+            "script_only": script_only,
+            "closed_notice": closed_notice,
+            "redirect": redirect,
+            "form": form,
+            "date_picker": date_picker,
+            "time_picker": time_picker,
+            "submit_control": submit_control,
+            "api_references_in_source_only": api_references,
+        }
+        if closed_notice and redirect and script_only:
+            contract_report["classification"] = "closed_notice_redirect"
+        elif form and date_picker and time_picker and submit_control and not closed_notice:
+            contract_report["classification"] = "booking_form_candidate_needs_manual_verification"
+        elif closed_notice:
+            contract_report["classification"] = "closed_notice"
+        else:
+            contract_report["classification"] = "other_public_response_review_needed"
+    except (OSError, UnicodeError) as exc:
+        contract_report["classification"] = "source_read_failed"
+        contract_report["reason"] = str(exc)[:180]
+analysis["contract_reservation_page"] = contract_report
+print("CONTRACT_PAGE", json.dumps(contract_report, ensure_ascii=False), flush=True)
+
 Path("snapshots/analysis.json").write_text(
     json.dumps(analysis, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
 )
