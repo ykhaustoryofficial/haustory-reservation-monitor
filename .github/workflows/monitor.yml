@@ -1,17 +1,6 @@
 name: Reservation source archive
 on:
-  schedule:
-    - cron: '17,47 22,23,0-10 * * *'
-    - cron: '17 11 * * *'
-    # One-time 2026-11-06 09:50-10:10 KST opening watch (GitHub cron uses UTC).
-    - cron: '50,55 0 6 11 *'
-    - cron: '0,5,10 1 6 11 *'
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - monitor.py
-      - .github/workflows/monitor.yml
 permissions:
   contents: write
 concurrency:
@@ -29,19 +18,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Archive publicly accessible source
-        env:
-          CRON_TRIGGER: ${{ github.event.schedule }}
-        run: |
-          # Extra opening-watch cron dates repeat yearly; run these only in 2026.
-          case "$CRON_TRIGGER" in
-            '50,55 0 6 11 *'|'0,5,10 1 6 11 *')
-              if [ "$(date -u +%Y)" != '2026' ]; then
-                echo 'One-time opening watch expired; skipping extra capture.'
-                exit 0
-              fi
-              ;;
-          esac
-          python monitor.py
+        run: python monitor.py
       - name: Commit captured source and manifest
         run: |
           git config user.name "github-actions[bot]"
