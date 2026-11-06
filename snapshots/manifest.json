@@ -1,23 +1,23 @@
 {
-  "captured_at_kst": "2026-11-06T09:32:52+09:00",
+  "captured_at_kst": "2026-11-06T09:39:06+09:00",
   "base_url": "https://www.xn--399a9js72an4ic7dr7a0yl59rz1h.com",
   "pages": {
     "/": {
       "status": "ok",
       "file": "snapshots/current/index.html",
-      "sha256": "fc879c27c099c3935c850a33768953d08c7c3e2a39dd251c435c86dcd0c80e39",
+      "sha256": "8943abefbfdfb22492d7f0482155329364921e7bc696637c190937d8ac170f5b",
       "bytes": 62634
     },
     "/schedule.php": {
       "status": "ok",
       "file": "snapshots/current/schedule.php",
-      "sha256": "9bb9f63dcd6e1d9f158e8a1de61908f0474bfa42e4cebef3319ab39762810ae2",
+      "sha256": "fe796b01a19239999ea552d190d96c7603acc98ab15c0b15c2d0b7d5840a7944",
       "bytes": 31960
     },
     "/reservation.php": {
       "status": "ok",
       "file": "snapshots/current/reservation.php",
-      "sha256": "c48aa6caec12f188edf23c8c22adaa565d2adf3e88fb667d4dc3d3c1e19f468c",
+      "sha256": "cee1b2bea7a9abbb443e13028a426b07c9633cab6da9340de8bb03bcb4186547",
       "bytes": 66149
     },
     "/contract.php": {
@@ -83,7 +83,7 @@
     "/visit.php": {
       "status": "ok",
       "file": "snapshots/current/visit.php",
-      "sha256": "ed17290efbd245d76e3daef876ce23c87f7791703c0dc52deacb85e5bd255ea8",
+      "sha256": "df446e94e45579e544d389834c96a97bd5fa4794012185240cf371f629f430a9",
       "bytes": 56385
     },
     "/visit_reservation.php": {
@@ -223,31 +223,31 @@
     "/contract_guide.php": {
       "status": "ok",
       "file": "snapshots/current/contract_guide.php",
-      "sha256": "af3314942cb159bc8cbb774a955964a3e38fa1c6bd458b1d24456f0e26772eef",
+      "sha256": "45559f6f48fae3c37aeacf88731cd21dd19ac00a0215e10dfd2813dab749d1f7",
       "bytes": 35784
     },
     "/stamp_tax.php": {
       "status": "ok",
       "file": "snapshots/current/stamp_tax.php",
-      "sha256": "33ea11cd4793fb911f6ba631de3c10845b2f2d674eada4156b7d273dfad781b6",
+      "sha256": "918acf22e55ffa7423f8a83ee98ee5ad262f3820574f2d3975f251ff8975d78f",
       "bytes": 35794
     },
     "/reserve_contract.php": {
       "status": "ok",
       "file": "snapshots/current/reserve_contract.php",
-      "sha256": "891b8fdf3b9f5cd0f83f2b0178e1aac4c117f7d3a1ea7b77aea387242c2e0bf0",
+      "sha256": "174c0a2ec24d11a4c0ceda1b7314e0d6ea7684c98aa412c45a5c4982fcd1f50f",
       "bytes": 35819
     },
     "/option_contract.php": {
       "status": "ok",
       "file": "snapshots/current/option_contract.php",
-      "sha256": "184dbfef7010467b0ae7d04bdc3d34513ae6ffa45bba33f5a81e464ae5dd9f28",
+      "sha256": "e6f4ced30e51db8ebe00a843d16bce5d87025c22bd3d2c531b172ad7a3818a7a",
       "bytes": 35809
     },
     "/loan_guide.php": {
       "status": "ok",
       "file": "snapshots/current/loan_guide.php",
-      "sha256": "6584cb07ca566c3dbc6b854a10a44405ac39b83d9e299822830be7b44857e865",
+      "sha256": "abd024ad350cee95f3154dc9561b95c1f3df2138bac5658f78015d179203b030",
       "bytes": 35988
     },
     "/js/common.js": {
@@ -274,6 +274,146 @@
       "sha256": "6fe8c90a2f9975ab746b1b3c076019d94c0da83199329ff566cd4d18d2dd05e4",
       "bytes": 1745
     },
+    "/reservation_contract_2026.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_contract2026.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_contract_01.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_contract2.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_contract_form.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_contract_apply.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_reservation_form.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_reservation_2026.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_reservation_apply.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_reserve_2026.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_winner.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_winner_1345.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_winner2026.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_winner_contract.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_contract_winner.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_contract1345.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_contract_1345.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_winner1345_contract.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_reservation_winner.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/contract_reservation_winner1345.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_general.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_regular.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_pre.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_presale.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_priority.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_general_contract.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_pre_contract.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reserve_general.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reserve_pre.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_option.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_new.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation_2026.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/reservation2.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/booking_contract_2026.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
+    "/visit_reservation_contract.php": {
+      "status": "unavailable",
+      "http_status": 404
+    },
     "/reservation_winner1345.php": {
       "status": "unavailable",
       "reason": "redirect or unexpected response"
@@ -284,7 +424,7 @@
   ],
   "discovered_total": 1,
   "discovery_truncated": false,
-  "expected_paths": 62,
-  "completed_paths": 62,
+  "expected_paths": 97,
+  "completed_paths": 97,
   "complete": true
 }
