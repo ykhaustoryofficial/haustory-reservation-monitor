@@ -209,16 +209,16 @@ if contract_entry.get("status") == "ok":
         contract_source = Path(contract_entry["file"]).read_text(encoding="utf-8")
         lower_source = contract_source.lower()
         # A page that only alerts and redirects must not count as an open booking form.
-        redirect = bool(re.search(r"(?:location\\.(?:href|replace|assign)|window\\.location)\\s*(?:=|\\()", contract_source, re.I))
+        redirect = bool(re.search(r"(?:location\.(?:href|replace|assign)|window\.location)\s*(?:=|\()", contract_source, re.I))
         closed_notice = "진행중인 방문예약 기간이 아닙니다" in contract_source
-        form = bool(re.search(r"<form\\b", contract_source, re.I))
-        date_input = bool(re.search(r"<input\\b[^>]*type\\s*=\\s*['\\\"]?date\\b", contract_source, re.I))
-        time_input = bool(re.search(r"<input\\b[^>]*type\\s*=\\s*['\\\"]?time\\b", contract_source, re.I))
+        form = bool(re.search(r"<form\b", contract_source, re.I))
+        date_input = bool(re.search(r"<input\b[^>]*type\s*=\s*['\\"]?date\b", contract_source, re.I))
+        time_input = bool(re.search(r"<input\b[^>]*type\s*=\s*['\\"]?time\b", contract_source, re.I))
         date_picker = "selectReserveDate(" in contract_source or date_input
         time_picker = "selectReserveTime(" in contract_source or time_input
-        submit_control = bool(re.search(r"<button\\b|type\\s*=\\s*['\\\"]?submit\\b|On_Booking\\s*\\(", contract_source, re.I))
+        submit_control = bool(re.search(r"<button\b|type\s*=\s*['\\"]?submit\b|On_Booking\s*\(", contract_source, re.I))
         api_references = sorted(set(re.findall(r"/proxy/visitors/json/[a-z0-9_/-]+", contract_source, re.I)))
-        script_only = bool(re.fullmatch(r"\\s*<script\\b[^>]*>.*?</script>\\s*", contract_source, re.I | re.S))
+        script_only = bool(re.fullmatch(r"\s*<script\b[^>]*>.*?</script>\s*", contract_source, re.I | re.S))
         contract_report["evidence"] = {
             "bytes": contract_entry.get("bytes"),
             "script_only": script_only,
