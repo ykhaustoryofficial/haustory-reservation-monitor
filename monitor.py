@@ -284,8 +284,8 @@ if presale_entry.get("status") == "ok":
     try:
         presale_html = Path(presale_entry["file"]).read_text(encoding="utf-8")
         notice = "진행중인 방문예약 기간이 아닙니다" in presale_html
-        redirect = bool(re.search(r"location\\.href\\s*=", presale_html, re.I))
-        form = bool(re.search(r"<form\\b", presale_html, re.I))
+        redirect = bool(re.search(r"location\.href\s*=", presale_html, re.I))
+        form = bool(re.search(r"<form\b", presale_html, re.I))
         date_picker = "selectReserveDate(" in presale_html
         time_picker = "selectReserveTime(" in presale_html
         presale_endpoint["evidence"] = {
