@@ -1,16 +1,12 @@
 {
-  "captured_at_kst": "2026-11-11T07:19:02+09:00",
+  "captured_at_kst": "2026-11-11T07:26:48+09:00",
   "mode": "passive_source_only",
   "api_requests_performed": 0,
-  "previous_captured_at_kst": "2026-11-06T09:56:10+09:00",
+  "previous_captured_at_kst": "2026-11-11T07:19:02+09:00",
   "status_changes": [
     {
-      "path": "/reservation.php",
-      "before": {
-        "status": "ok",
-        "http_status": null,
-        "reason": null
-      },
+      "path": "/reservation_contract_pre.php",
+      "before": null,
       "after": {
         "status": "unavailable",
         "http_status": 404,
@@ -18,38 +14,134 @@
       }
     },
     {
-      "path": "/reservation_general.php",
-      "before": {
+      "path": "/reservation_option_pre.php",
+      "before": null,
+      "after": {
         "status": "unavailable",
         "http_status": 404,
-        "reason": null
-      },
-      "after": {
-        "status": "ok",
-        "http_status": null,
         "reason": null
       }
     },
     {
-      "path": "/reservation_presale.php",
-      "before": {
+      "path": "/reservation_presale_option.php",
+      "before": null,
+      "after": {
         "status": "unavailable",
         "http_status": 404,
-        "reason": null
-      },
-      "after": {
-        "status": "ok",
-        "http_status": null,
         "reason": null
       }
     },
     {
-      "path": "/reservation_winner1345.php",
-      "before": {
+      "path": "/reservation_pre_option.php",
+      "before": null,
+      "after": {
         "status": "unavailable",
-        "http_status": null,
-        "reason": "redirect or unexpected response"
-      },
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_option_presale.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_option_priority.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_pre_option_contract.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_presale_visit.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_pre_visit.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_option_visit.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/option_reservation.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/option_reservation_pre.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/option_reservation_presale.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/option_visit_reservation.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_option_general.php",
+      "before": null,
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_option_presale_contract.php",
+      "before": null,
       "after": {
         "status": "unavailable",
         "http_status": 404,
@@ -59,7 +151,7 @@
   ],
   "source_signals": {
     "/": {
-      "sha256": "2dc11c24bde794568becd2525fc5dfa05c32dbfd0d10aedd6dbfbad0f2afcd14",
+      "sha256": "7a4d1ec45e8529e5f6205de348633c21dd2f0eb06557b8a2fbc9f15457d2f98e",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": true,
@@ -74,7 +166,7 @@
       }
     },
     "/reservation_contract.php": {
-      "sha256": "1ba23ea785ef50aa0e7162f088c0a095cc29ad8602011495a20a06d5c28af70d",
+      "sha256": "cd71d515c80749e182c055371b2bce6217dd9b3dad042cfbbb69505268c2a1fa",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
@@ -89,7 +181,7 @@
       }
     },
     "/reserve_contract.php": {
-      "sha256": "f2351542fddc32ec6c5f05feaf280d3de9f54fc2b3e4a835a0e483ac9a062def",
+      "sha256": "d5ebecb8fa00f8e631aa2ea301d43def87d0e7fdfa9df16c91c3933764fa480f",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
@@ -105,7 +197,7 @@
     },
     "/reservation_general.php": {
       "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
-      "changed_since_previous": true,
+      "changed_since_previous": false,
       "signals": {
         "contract_alert": false,
         "reserve_alert": false,
@@ -120,7 +212,7 @@
     },
     "/reservation_presale.php": {
       "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
-      "changed_since_previous": true,
+      "changed_since_previous": false,
       "signals": {
         "contract_alert": false,
         "reserve_alert": false,
@@ -134,28 +226,60 @@
       }
     }
   },
-  "contract_reservation_page": {
-    "path": "/reservation_contract.php",
-    "url": "https://www.xn--399a9js72an4ic7dr7a0yl59rz1h.com/reservation_contract.php",
-    "captured_at_kst": "2026-11-11T07:19:02+09:00",
-    "status": "ok",
-    "http_status": null,
-    "reason": null,
-    "sha256": "1ba23ea785ef50aa0e7162f088c0a095cc29ad8602011495a20a06d5c28af70d",
-    "previous_sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
-    "response_changed": true,
-    "previous_status": "ok",
-    "classification": "booking_form_candidate_needs_manual_verification",
-    "evidence": {
-      "bytes": 79180,
-      "script_only": false,
-      "closed_notice": false,
-      "redirect": true,
-      "form": true,
-      "date_picker": true,
-      "time_picker": true,
-      "submit_control": true,
-      "api_references_in_source_only": []
-    }
+  "presale_option_reservation": {
+    "captured_at_kst": "2026-11-11T07:26:48+09:00",
+    "target": "presale_option_visit",
+    "button_found": false,
+    "button_href": null,
+    "button_alert_only": null,
+    "button_changed_since_previous": null,
+    "candidate_paths": {
+      "/reservation_option_pre.php": {
+        "status": "unavailable",
+        "http_status": 404,
+        "changed_since_previous": true
+      },
+      "/reservation_presale_option.php": {
+        "status": "unavailable",
+        "http_status": 404,
+        "changed_since_previous": true
+      },
+      "/reservation_pre_option.php": {
+        "status": "unavailable",
+        "http_status": 404,
+        "changed_since_previous": true
+      },
+      "/reservation_option_presale.php": {
+        "status": "unavailable",
+        "http_status": 404,
+        "changed_since_previous": true
+      },
+      "/reservation_option_priority.php": {
+        "status": "unavailable",
+        "http_status": 404,
+        "changed_since_previous": true
+      },
+      "/reservation_pre_option_contract.php": {
+        "status": "unavailable",
+        "http_status": 404,
+        "changed_since_previous": true
+      },
+      "/option_reservation_pre.php": {
+        "status": "unavailable",
+        "http_status": 404,
+        "changed_since_previous": true
+      },
+      "/option_reservation_presale.php": {
+        "status": "unavailable",
+        "http_status": 404,
+        "changed_since_previous": true
+      },
+      "/reservation_option_presale_contract.php": {
+        "status": "unavailable",
+        "http_status": 404,
+        "changed_since_previous": true
+      }
+    },
+    "booking_open_confirmed": false
   }
 }
