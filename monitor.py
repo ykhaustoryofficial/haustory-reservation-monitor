@@ -243,10 +243,10 @@ home = manifest["pages"].get("/", {})
 if home.get("status") == "ok":
     try:
         source = Path(home["file"]).read_text(encoding="utf-8")
-        match = re.search(r'<a\\b(?=[^>]*popupLoan-btn--pre)[^>]*>', source, re.I | re.S)
+        match = re.search(r'<a\b(?=[^>]*popupLoan-btn--pre)[^>]*>', source, re.I | re.S)
         if match:
             tag = match.group(0)
-            link = re.search(r'href\\s*=\\s*["\\x27]([^"\\x27]*)', tag, re.I)
+            link = re.search(r'href\s*=\s*["\x27]([^"\x27]*)', tag, re.I)
             focus["button_found"] = True
             focus["button_href"] = html.unescape(link.group(1)) if link else None
             focus["button_alert_only"] = (
