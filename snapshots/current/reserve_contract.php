@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>역곡지구 하우스토리</title>
-        <link rel="icon" href="/favicon.ico?v=1793926577" />
+        <link rel="icon" href="/favicon.ico?v=2026.11.09.03.18.38" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <meta property="og:type" content="website" />
@@ -58,11 +58,11 @@
         <!-- viewport -->
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <!-- css -->
-        <link rel="stylesheet" href="./css/font.css?1793926577">
+        <link rel="stylesheet" href="./css/font.css?1794349148">
         <link rel="stylesheet" href="./css/fontawesome.css">
         <link rel="stylesheet" href="./css/swiper.min.css">
-        <link rel="stylesheet" href="./css/common.css?1793926577">
-        <link rel="stylesheet" href="./css/style.css?1793926577">
+        <link rel="stylesheet" href="./css/common.css?1794349148">
+        <link rel="stylesheet" href="./css/style.css?1794349148">
 
         <style>
             /* 계약안내(6번째) 메뉴만 폭 넓힘 - PC */
@@ -174,7 +174,7 @@
 
         <script src="./js/swiper.min.js"></script>
         <script src="./js/browser.js"></script>
-        <script src="./js/common.js?1793926577"></script>
+        <script src="./js/common.js?1794349148"></script>
 
         <link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
         <script src="./js/jquery.mCustomScrollbar.min.js"></script>
@@ -299,6 +299,7 @@
                         <!-- 계약안내 대메뉴 -->
                         <li id="m06"><a href="./contract_guide.php" title="계약안내" class="">계약안내</a></li>
                         <li id="m07"><a href="./registration.php" title="홍보센터" class="">홍보센터</a></li>
+                                                    <li id="m08"><a href="./reservation_contract.php" title="방문예약" class="">방문예약</a></li>
                         
 
                     </ul>
@@ -372,6 +373,11 @@
                                 <li><a href="./promotion.php" title="홍보영상" class="">홍보영상</a></li>
                             </ul>
                         </li>
+                                                    <li rel="m08">
+                                <ul class="sub_menu">
+                                                                            <li><a href="./reservation_contract.php" title="정당계약 방문예약" class="">정당계약 방문예약</a></li>
+                                                                                                                                            </ul>
+                            </li>
                         
 
                     </ul>
@@ -393,8 +399,8 @@
 
     </div>
 
-<link rel="stylesheet" href="./css/sub.css?1793926577">
-<script src="./js/sub.js?1793926577"></script>
+<link rel="stylesheet" href="./css/sub.css?1794349148">
+<script src="./js/sub.js?1794349148"></script>
 
 
 
@@ -431,6 +437,7 @@
                 <li><a href="./contract_guide.php" class="">계약안내</a></li>
                 <!-- 계약안내 추가로 대메뉴 7개 -->
                 <li><a href="./registration.php" class="">홍보센터</a></li>
+                                    <li><a href="./reservation_contract.php" class="">방문예약</a></li>
                 
 			</ul>
 			<span class="arrow"></span>
@@ -685,7 +692,7 @@
 
         <div class="contract-guide">
             <div class="contract-guide-item">
-                <img src="./img/contract/reserve_contract_guide_01.jpg?v=2" alt="역곡지구 하우스토리 예비당첨자 계약안내">
+                <img src="./img/contract/reserve_contract_guide_v3_01.jpg" alt="역곡지구 하우스토리 예비당첨자 계약안내">
             </div>
         </div>
     </div>

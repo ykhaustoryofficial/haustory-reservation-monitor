@@ -1,0 +1,1 @@
+<script type='text/javascript'>alert(`진행중인 방문예약 기간이 아닙니다.`);location.href=`/`;</script>

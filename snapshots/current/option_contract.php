@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>역곡지구 하우스토리</title>
-        <link rel="icon" href="/favicon.ico?v=1793926577" />
+        <link rel="icon" href="/favicon.ico?v=2026.11.09.03.18.38" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <meta property="og:type" content="website" />
@@ -58,11 +58,11 @@
         <!-- viewport -->
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <!-- css -->
-        <link rel="stylesheet" href="./css/font.css?1793926577">
+        <link rel="stylesheet" href="./css/font.css?1794349148">
         <link rel="stylesheet" href="./css/fontawesome.css">
         <link rel="stylesheet" href="./css/swiper.min.css">
-        <link rel="stylesheet" href="./css/common.css?1793926577">
-        <link rel="stylesheet" href="./css/style.css?1793926577">
+        <link rel="stylesheet" href="./css/common.css?1794349148">
+        <link rel="stylesheet" href="./css/style.css?1794349148">
 
         <style>
             /* 계약안내(6번째) 메뉴만 폭 넓힘 - PC */
@@ -174,7 +174,7 @@
 
         <script src="./js/swiper.min.js"></script>
         <script src="./js/browser.js"></script>
-        <script src="./js/common.js?1793926577"></script>
+        <script src="./js/common.js?1794349148"></script>
 
         <link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
         <script src="./js/jquery.mCustomScrollbar.min.js"></script>
@@ -299,6 +299,7 @@
                         <!-- 계약안내 대메뉴 -->
                         <li id="m06"><a href="./contract_guide.php" title="계약안내" class="">계약안내</a></li>
                         <li id="m07"><a href="./registration.php" title="홍보센터" class="">홍보센터</a></li>
+                                                    <li id="m08"><a href="./reservation_contract.php" title="방문예약" class="">방문예약</a></li>
                         
 
                     </ul>
@@ -372,6 +373,11 @@
                                 <li><a href="./promotion.php" title="홍보영상" class="">홍보영상</a></li>
                             </ul>
                         </li>
+                                                    <li rel="m08">
+                                <ul class="sub_menu">
+                                                                            <li><a href="./reservation_contract.php" title="정당계약 방문예약" class="">정당계약 방문예약</a></li>
+                                                                                                                                            </ul>
+                            </li>
                         
 
                     </ul>
@@ -393,8 +399,8 @@
 
     </div>
 
-<link rel="stylesheet" href="./css/sub.css?1793926577">
-<script src="./js/sub.js?1793926577"></script>
+<link rel="stylesheet" href="./css/sub.css?1794349148">
+<script src="./js/sub.js?1794349148"></script>
 
 
 
@@ -431,6 +437,7 @@
                 <li><a href="./contract_guide.php" class="">계약안내</a></li>
                 <!-- 계약안내 추가로 대메뉴 7개 -->
                 <li><a href="./registration.php" class="">홍보센터</a></li>
+                                    <li><a href="./reservation_contract.php" class="">방문예약</a></li>
                 
 			</ul>
 			<span class="arrow"></span>
@@ -668,9 +675,166 @@
         overflow: hidden;
     }
 
+    /* 타입 탭 (계약 안내 / 55A~55F) : 아래 이미지 너비(1200px)에 맞춤 */
+    .option-type-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        max-width: 1200px;
+        margin: 0 auto 40px;
+    }
+
+    .option-type-tabs button {
+        flex: 1;
+        width: auto;
+        height: 60px;
+        border: 0;
+        background: #d6d6d6;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .option-type-tabs button.active {
+        background: #003477;
+    }
+
+    /* [계약 안내] 버튼만 색상 구분 */
+    .option-type-tabs button[data-type="common"] {
+        background: #8fa6c8;
+    }
+
+    .option-type-tabs button[data-type="common"].active {
+        background: #0d2144;
+    }
+
+    /* 계약자 구분 탭 (일반 / 사전청약) */
+    .option-kind-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 0 0 50px;
+    }
+
+    .option-kind-tabs button {
+        min-width: 200px;
+        height: 50px;
+        padding: 0 24px;
+        border: 1px solid #003477;
+        border-radius: 999px;
+        background: #fff;
+        color: #003477;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .option-kind-tabs button.active {
+        background: #003477;
+        color: #fff;
+    }
+
+    .option-panel {
+        display: none;
+    }
+
+    .option-panel.active {
+        display: block;
+    }
+
+    /* 서식류 다운로드 버튼 : 이미지 바깥 우측 위 (계약자 탭과 이미지 사이 여백) */
+    .option-guide-head {
+        position: relative;
+    }
+
+    .option-download-btn {
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        z-index: 5;
+        margin-bottom: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        height: 36px;
+        padding: 0 16px;
+        border: 0;
+        border-radius: 4px;
+        background: #eef2f8;
+        color: #003477;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .option-download-btn svg {
+        width: 16px;
+        height: 16px;
+        flex: 0 0 auto;
+    }
+
+    .option-download-btn:hover {
+        background: #dde5f1;
+        color: #003477;
+    }
+
     @media screen and (max-width: 768px) {
         .contract-guide {
             padding: 0 0 60px;
+        }
+
+        .option-type-tabs {
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 680px;
+            margin: 0 auto 36px;
+        }
+
+        .option-type-tabs button {
+            flex: 0 0 calc((100% - 20px) / 3);
+            width: calc((100% - 20px) / 3);
+            height: 70px;
+            font-size: 26px;
+        }
+
+        /* 모바일 : [계약 안내] 첫 줄 전체 */
+        .option-type-tabs button[data-type="common"] {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+
+        .option-kind-tabs {
+            margin: 0 0 40px;
+        }
+
+        /* 모바일 : 서식류 다운로드가 열렸을 때만 버튼 자리 확보 */
+        .option-download-on .option-kind-tabs {
+            margin: 0 0 120px;
+        }
+
+        .option-download-btn {
+            height: 60px;
+            margin-bottom: 24px;
+            padding: 0 26px;
+            font-size: 22px;
+        }
+
+        .option-download-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .option-kind-tabs button {
+            min-width: 0;
+            flex: 1;
+            max-width: 330px;
+            height: 70px;
+            font-size: 24px;
         }
 
         .contract-guide-item + .contract-guide-item {
@@ -683,11 +847,201 @@
     <div class="row">
         <h6>유상옵션 계약안내</h6>
 
+        <!-- 타입 탭 -->
+        <div class="option-type-tabs" role="tablist">
+            <button type="button" class="active" data-type="common">계약 안내</button>
+                            <button type="button" class="" data-type="55A">55A</button>
+                            <button type="button" class="" data-type="55B">55B</button>
+                            <button type="button" class="" data-type="55C">55C</button>
+                            <button type="button" class="" data-type="55D">55D</button>
+                            <button type="button" class="" data-type="55E">55E</button>
+                            <button type="button" class="" data-type="55F">55F</button>
+                    </div>
+
+        <!-- 계약자 구분 탭 -->
+        <div class="option-kind-tabs" id="optionKindTabs" role="tablist">
+                            <button type="button" class="active" data-kind="general">일반 계약자</button>
+                                <button type="button" class="" data-kind="presale">사전청약 계약자</button>
+                        </div>
+
         <div class="contract-guide">
-            <div class="contract-guide-item">
-                <img src="./img/contract/option_contract_guide_01.jpg?v=1" alt="역곡지구 하우스토리 유상옵션 계약안내">
+            <!-- 계약 안내 탭 : 발코니 확장 및 유상옵션 계약 안내문 (처음 노출) -->
+            <div class="option-panel" data-type="common">
+                <div class="contract-guide-item">
+                    <img src="./img/contract/option_contract_guide_01.jpg?v=1" alt="역곡지구 하우스토리 유상옵션 계약안내">
+                </div>
             </div>
-        </div>
+
+            <!-- 타입 x 계약자별 안내 (선택된 것만 이미지 불러옴) -->
+                            <div class="option-panel" data-type="55A" data-kind="general">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55a_general_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55A 일반 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55a_general_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55A 일반 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55a_general_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55A 일반 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55A" data-kind="presale">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55a_presale_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55A 사전청약 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55a_presale_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55A 사전청약 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55a_presale_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55A 사전청약 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55B" data-kind="general">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55b_general_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55B 일반 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55b_general_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55B 일반 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55b_general_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55B 일반 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55B" data-kind="presale">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55b_presale_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55B 사전청약 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55b_presale_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55B 사전청약 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55b_presale_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55B 사전청약 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55C" data-kind="general">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55c_general_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55C 일반 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55c_general_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55C 일반 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55c_general_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55C 일반 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55C" data-kind="presale">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55c_presale_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55C 사전청약 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55c_presale_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55C 사전청약 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55c_presale_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55C 사전청약 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55D" data-kind="general">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55d_general_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55D 일반 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55d_general_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55D 일반 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55d_general_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55D 일반 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55D" data-kind="presale">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55d_presale_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55D 사전청약 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55d_presale_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55D 사전청약 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55d_presale_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55D 사전청약 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55E" data-kind="general">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55e_general_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55E 일반 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55e_general_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55E 일반 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55e_general_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55E 일반 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55E" data-kind="presale">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55e_presale_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55E 사전청약 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55e_presale_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55E 사전청약 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55e_presale_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55E 사전청약 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55F" data-kind="general">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55f_general_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55F 일반 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55f_general_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55F 일반 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55f_general_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55F 일반 계약자 3">
+
+                                                    </div>
+                                    </div>
+                            <div class="option-panel" data-type="55F" data-kind="presale">
+                                            <div class="contract-guide-item option-guide-head">
+                            <img data-src="./img/contract/option/option_55f_presale_01.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55F 사전청약 계약자 1">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55f_presale_02.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55F 사전청약 계약자 2">
+
+                                                    </div>
+                                            <div class="contract-guide-item">
+                            <img data-src="./img/contract/option/option_55f_presale_03.jpg" alt="역곡지구 하우스토리 유상옵션 안내 55F 사전청약 계약자 3">
+
+                                                    </div>
+                                    </div>
+                    </div>
     </div>
 </div>
 
@@ -876,6 +1230,58 @@
             if (s < minS) s = minS;
             apply();
         });
+    })();
+</script>
+
+<script>
+    /* 타입 / 계약자 탭 전환 */
+    (function () {
+        var typeBtns = document.querySelectorAll('.option-type-tabs button');
+        var kindBtns = document.querySelectorAll('.option-kind-tabs button');
+        var panels = document.querySelectorAll('.option-panel');
+        var kindWrap = document.getElementById('optionKindTabs');
+        var curType = typeBtns.length ? typeBtns[0].dataset.type : '';
+        var curKind = kindBtns.length ? kindBtns[0].dataset.kind : '';
+
+        function show() {
+            typeBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.type === curType); });
+            kindBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.kind === curKind); });
+
+            /* 계약 안내 탭에서는 계약자 구분 탭 숨김 */
+            if (kindWrap) kindWrap.style.display = (curType === 'common') ? 'none' : '';
+
+            panels.forEach(function (p) {
+                var on = (curType === 'common')
+                    ? (p.dataset.type === 'common')
+                    : (p.dataset.type === curType && p.dataset.kind === curKind);
+                p.classList.toggle('active', on);
+
+                /* 처음 보여줄 때만 이미지 불러오기 */
+                if (on) {
+                    p.querySelectorAll('img[data-src]').forEach(function (img) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    });
+                }
+            });
+        }
+
+        typeBtns.forEach(function (b) {
+            b.addEventListener('click', function () {
+                curType = b.dataset.type;
+                curKind = kindBtns.length ? kindBtns[0].dataset.kind : '';  /* 타입 바꾸면 일반 계약자로 */
+                show();
+            });
+        });
+
+        kindBtns.forEach(function (b) {
+            b.addEventListener('click', function () {
+                curKind = b.dataset.kind;
+                show();
+            });
+        });
+
+        show();
     })();
 </script>
 

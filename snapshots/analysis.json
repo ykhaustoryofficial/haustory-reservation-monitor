@@ -1,12 +1,65 @@
 {
-  "captured_at_kst": "2026-11-06T09:56:10+09:00",
+  "captured_at_kst": "2026-11-11T07:19:02+09:00",
   "mode": "passive_source_only",
   "api_requests_performed": 0,
-  "previous_captured_at_kst": "2026-11-06T09:52:03+09:00",
-  "status_changes": [],
+  "previous_captured_at_kst": "2026-11-06T09:56:10+09:00",
+  "status_changes": [
+    {
+      "path": "/reservation.php",
+      "before": {
+        "status": "ok",
+        "http_status": null,
+        "reason": null
+      },
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_general.php",
+      "before": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      },
+      "after": {
+        "status": "ok",
+        "http_status": null,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_presale.php",
+      "before": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      },
+      "after": {
+        "status": "ok",
+        "http_status": null,
+        "reason": null
+      }
+    },
+    {
+      "path": "/reservation_winner1345.php",
+      "before": {
+        "status": "unavailable",
+        "http_status": null,
+        "reason": "redirect or unexpected response"
+      },
+      "after": {
+        "status": "unavailable",
+        "http_status": 404,
+        "reason": null
+      }
+    }
+  ],
   "source_signals": {
     "/": {
-      "sha256": "84247de31fb15e35d8f4548eb7a4de7b31f495ad6d3a0321582ac82e5340ba21",
+      "sha256": "2dc11c24bde794568becd2525fc5dfa05c32dbfd0d10aedd6dbfbad0f2afcd14",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": true,
@@ -20,8 +73,8 @@
         "november_reference": true
       }
     },
-    "/reservation.php": {
-      "sha256": "e4b0371e4c73491bd58ff255f9cd9f828c25cbdd98edc464c12ec4a28b42830f",
+    "/reservation_contract.php": {
+      "sha256": "1ba23ea785ef50aa0e7162f088c0a095cc29ad8602011495a20a06d5c28af70d",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
@@ -29,15 +82,15 @@
         "date_picker": true,
         "time_picker": true,
         "booking_submit": true,
-        "date_api_reference": true,
-        "time_api_reference": true,
-        "booking_api_reference": true,
+        "date_api_reference": false,
+        "time_api_reference": false,
+        "booking_api_reference": false,
         "november_reference": false
       }
     },
-    "/reservation_contract.php": {
-      "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
-      "changed_since_previous": false,
+    "/reserve_contract.php": {
+      "sha256": "f2351542fddc32ec6c5f05feaf280d3de9f54fc2b3e4a835a0e483ac9a062def",
+      "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
         "reserve_alert": false,
@@ -50,8 +103,23 @@
         "november_reference": false
       }
     },
-    "/reserve_contract.php": {
-      "sha256": "3e21023563284bd391f8e7b51337ee5f2e335519a905eaee74cbabb2f2aeb9d7",
+    "/reservation_general.php": {
+      "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
+      "changed_since_previous": true,
+      "signals": {
+        "contract_alert": false,
+        "reserve_alert": false,
+        "date_picker": false,
+        "time_picker": false,
+        "booking_submit": false,
+        "date_api_reference": false,
+        "time_api_reference": false,
+        "booking_api_reference": false,
+        "november_reference": false
+      }
+    },
+    "/reservation_presale.php": {
+      "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
       "changed_since_previous": true,
       "signals": {
         "contract_alert": false,
@@ -69,24 +137,24 @@
   "contract_reservation_page": {
     "path": "/reservation_contract.php",
     "url": "https://www.xn--399a9js72an4ic7dr7a0yl59rz1h.com/reservation_contract.php",
-    "captured_at_kst": "2026-11-06T09:56:10+09:00",
+    "captured_at_kst": "2026-11-11T07:19:02+09:00",
     "status": "ok",
     "http_status": null,
     "reason": null,
-    "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
+    "sha256": "1ba23ea785ef50aa0e7162f088c0a095cc29ad8602011495a20a06d5c28af70d",
     "previous_sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
-    "response_changed": false,
+    "response_changed": true,
     "previous_status": "ok",
-    "classification": "closed_notice_redirect",
+    "classification": "booking_form_candidate_needs_manual_verification",
     "evidence": {
-      "bytes": 117,
-      "script_only": true,
-      "closed_notice": true,
+      "bytes": 79180,
+      "script_only": false,
+      "closed_notice": false,
       "redirect": true,
-      "form": false,
-      "date_picker": false,
-      "time_picker": false,
-      "submit_control": false,
+      "form": true,
+      "date_picker": true,
+      "time_picker": true,
+      "submit_control": true,
       "api_references_in_source_only": []
     }
   }

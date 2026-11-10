@@ -1,24 +1,22 @@
 {
-  "captured_at_kst": "2026-11-06T09:56:10+09:00",
+  "captured_at_kst": "2026-11-11T07:19:02+09:00",
   "base_url": "https://www.xn--399a9js72an4ic7dr7a0yl59rz1h.com",
   "pages": {
     "/": {
       "status": "ok",
       "file": "snapshots/current/index.html",
-      "sha256": "84247de31fb15e35d8f4548eb7a4de7b31f495ad6d3a0321582ac82e5340ba21",
-      "bytes": 62634
+      "sha256": "2dc11c24bde794568becd2525fc5dfa05c32dbfd0d10aedd6dbfbad0f2afcd14",
+      "bytes": 63580
     },
     "/schedule.php": {
       "status": "ok",
       "file": "snapshots/current/schedule.php",
-      "sha256": "5f0e02c22e4e7afe2e54e3829e7f3640852c1a94d8b3eb4767099cf3346fd61e",
-      "bytes": 31960
+      "sha256": "05de3fad72d651ab70f7aac331a4edd2eaa0652a9cc01be311e7fbe389ed99a6",
+      "bytes": 32734
     },
     "/reservation.php": {
-      "status": "ok",
-      "file": "snapshots/current/reservation.php",
-      "sha256": "e4b0371e4c73491bd58ff255f9cd9f828c25cbdd98edc464c12ec4a28b42830f",
-      "bytes": 66149
+      "status": "unavailable",
+      "http_status": 404
     },
     "/contract.php": {
       "status": "unavailable",
@@ -83,8 +81,8 @@
     "/visit.php": {
       "status": "ok",
       "file": "snapshots/current/visit.php",
-      "sha256": "0b5f4cb3e2e28015dce35c90bc0f85b0951595049ada77c6f5918f03be2e55e2",
-      "bytes": 56385
+      "sha256": "1c0cffdf0119d226bc86c60a9ec553755e073cbb5e886b6118b659a8de6e3ca3",
+      "bytes": 57159
     },
     "/visit_reservation.php": {
       "status": "unavailable",
@@ -157,8 +155,8 @@
     "/reservation_contract.php": {
       "status": "ok",
       "file": "snapshots/current/reservation_contract.php",
-      "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
-      "bytes": 117
+      "sha256": "1ba23ea785ef50aa0e7162f088c0a095cc29ad8602011495a20a06d5c28af70d",
+      "bytes": 79180
     },
     "/reservation_visit.php": {
       "status": "unavailable",
@@ -223,32 +221,32 @@
     "/contract_guide.php": {
       "status": "ok",
       "file": "snapshots/current/contract_guide.php",
-      "sha256": "d7a1511bd526fa22c16e24825c194661a9793caeee49b3151308305ad394e9cd",
-      "bytes": 35784
+      "sha256": "670622b0ad7008d26ec51980499b61b61ed3c384881ffb94b2ae47f7f3a9174c",
+      "bytes": 36558
     },
     "/stamp_tax.php": {
       "status": "ok",
       "file": "snapshots/current/stamp_tax.php",
-      "sha256": "59ed02c53086e0f2fb53152a2278990b95e808d012d185c74efc435ffc6b580a",
-      "bytes": 35794
+      "sha256": "aeaa3cb0a4ce41442c59bf6079cfee0a57ac8f77ab3dd9ff547ccc9b678cdb21",
+      "bytes": 36568
     },
     "/reserve_contract.php": {
       "status": "ok",
       "file": "snapshots/current/reserve_contract.php",
-      "sha256": "3e21023563284bd391f8e7b51337ee5f2e335519a905eaee74cbabb2f2aeb9d7",
-      "bytes": 35819
+      "sha256": "f2351542fddc32ec6c5f05feaf280d3de9f54fc2b3e4a835a0e483ac9a062def",
+      "bytes": 36592
     },
     "/option_contract.php": {
       "status": "ok",
       "file": "snapshots/current/option_contract.php",
-      "sha256": "17b69fca0cdf0b1bbcfff2e637349a6f9bfd18a679e6a51403fac950372af51e",
-      "bytes": 35809
+      "sha256": "f9e36ef224a884e62645ddbd61543dcd20d008aec99bdd107721d7b88718a0fa",
+      "bytes": 57168
     },
     "/loan_guide.php": {
       "status": "ok",
       "file": "snapshots/current/loan_guide.php",
-      "sha256": "9898dfe549c2c36b9cba437f45635004a97ab5fad06e02320ab67ca45dd7ff1c",
-      "bytes": 35988
+      "sha256": "bcff2399d5b3a14ffc7683bda18e15ff3db099a99e19709944ccbedf468801d9",
+      "bytes": 36762
     },
     "/js/common.js": {
       "status": "ok",
@@ -355,8 +353,10 @@
       "http_status": 404
     },
     "/reservation_general.php": {
-      "status": "unavailable",
-      "http_status": 404
+      "status": "ok",
+      "file": "snapshots/current/reservation_general.php",
+      "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
+      "bytes": 117
     },
     "/reservation_regular.php": {
       "status": "unavailable",
@@ -367,8 +367,10 @@
       "http_status": 404
     },
     "/reservation_presale.php": {
-      "status": "unavailable",
-      "http_status": 404
+      "status": "ok",
+      "file": "snapshots/current/reservation_presale.php",
+      "sha256": "ef784a08b20689be549dbae046dcc78d05eb40b7224f9e7a48f0a7410e9b8535",
+      "bytes": 117
     },
     "/reservation_priority.php": {
       "status": "unavailable",
@@ -416,7 +418,7 @@
     },
     "/reservation_winner1345.php": {
       "status": "unavailable",
-      "reason": "redirect or unexpected response"
+      "http_status": 404
     }
   },
   "discovered_paths": [
