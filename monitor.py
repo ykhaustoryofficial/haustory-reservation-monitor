@@ -302,6 +302,40 @@ if presale_entry.get("status") == "ok":
         presale_endpoint["classification"] = "read_failed"
         presale_endpoint["reason"] = str(exc)[:120]
 focus["confirmed_endpoint_candidate"] = presale_endpoint
+# Always print a prominent, human-readable endpoint review, even if unchanged.
+print("\n=== PRIORITY: /reservation_presale.php ===", flush=True)
+print("Capture (KST):", timestamp, flush=True)
+print("HTTP:", presale_endpoint["http_status"] or presale_endpoint["status"], flush=True)
+print("Previous HTTP:", presale_endpoint["previous_http_status"] or presale_endpoint["previous_status"], flush=True)
+print("Classification:", presale_endpoint["classification"], flush=True)
+print("Response changed:", presale_endpoint["response_changed"], flush=True)
+print("Evidence:", json.dumps(presale_endpoint.get("evidence", {}), ensure_ascii=False), flush=True)
+print("Manual review required before claiming booking open.", flush=True)
+print("=== END PRIORITY REVIEW ===\n", flush=True)
+report = [
+    "# 사전청약자 옵션 방문예약 집중 검토 보고서",
+    "",
+    f"- 수집시각(KST): {timestamp}",
+    f"- 최우선 감시 주소: {BASE}{presale_path}",
+    f"- 현재 HTTP/상태: {presale_endpoint['http_status'] or presale_endpoint['status']}",
+    f"- 이전 HTTP/상태: {presale_endpoint['previous_http_status'] or presale_endpoint['previous_status']}",
+    f"- 응답 변경: {'예' if presale_endpoint['response_changed'] else '아니오'}",
+    f"- 판정: {presale_endpoint['classification']}",
+    f"- 홈페이지 사전청약자 버튼: {'발견' if focus['button_found'] else '미발견'}",
+    f"- 버튼 주소: {focus['button_href']}",
+    "",
+    "## HTML 근거",
+    "",
+    f"- 예약기간 외 안내: {presale_endpoint.get('evidence', {}).get('closed_notice', '확인 불가')}",
+    f"- 홈페이지 이동 코드: {presale_endpoint.get('evidence', {}).get('redirect', '확인 불가')}",
+    f"- 예약 폼: {presale_endpoint.get('evidence', {}).get('form', '확인 불가')}",
+    f"- 날짜 선택 코드: {presale_endpoint.get('evidence', {}).get('date_picker', '확인 불가')}",
+    f"- 시간 선택 코드: {presale_endpoint.get('evidence', {}).get('time_picker', '확인 불가')}",
+    "",
+    "HTTP 200 또는 폼 존재만으로 실제 예약 오픈을 확정하지 않습니다.",
+    "예약 API 호출이나 예약 신청은 수행하지 않습니다.",
+]
+Path("snapshots/presale_option_report.md").write_text("\n".join(report) + "\n", encoding="utf-8")
 analysis["presale_option_reservation"] = focus
 print("PRESALE_OPTION", json.dumps(focus, ensure_ascii=False), flush=True)
 
