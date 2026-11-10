@@ -266,6 +266,42 @@ for path, entry in manifest["pages"].items():
                 or old.get("sha256") != entry.get("sha256")
             ),
         }
+# Examine the now-confirmed presale endpoint's captured public response.
+presale_path = "/reservation_presale.php"
+presale_entry = manifest["pages"].get(presale_path, {})
+presale_old = previous_pages.get(presale_path, {})
+presale_endpoint = {
+    "path": presale_path,
+    "status": presale_entry.get("status", "missing"),
+    "http_status": presale_entry.get("http_status"),
+    "previous_status": presale_old.get("status"),
+    "previous_http_status": presale_old.get("http_status"),
+    "sha256": presale_entry.get("sha256"),
+    "response_changed": presale_entry.get("sha256") != presale_old.get("sha256"),
+    "classification": "not_available",
+}
+if presale_entry.get("status") == "ok":
+    try:
+        presale_html = Path(presale_entry["file"]).read_text(encoding="utf-8")
+        notice = "진행중인 방문예약 기간이 아닙니다" in presale_html
+        redirect = bool(re.search(r"location\\.href\\s*=", presale_html, re.I))
+        form = bool(re.search(r"<form\\b", presale_html, re.I))
+        date_picker = "selectReserveDate(" in presale_html
+        time_picker = "selectReserveTime(" in presale_html
+        presale_endpoint["evidence"] = {
+            "closed_notice": notice, "redirect": redirect,
+            "form": form, "date_picker": date_picker, "time_picker": time_picker
+        }
+        if notice and redirect:
+            presale_endpoint["classification"] = "closed_period_notice"
+        elif form and date_picker and time_picker and not notice:
+            presale_endpoint["classification"] = "booking_form_candidate_manual_check"
+        else:
+            presale_endpoint["classification"] = "other_response_manual_check"
+    except (OSError, UnicodeError) as exc:
+        presale_endpoint["classification"] = "read_failed"
+        presale_endpoint["reason"] = str(exc)[:120]
+focus["confirmed_endpoint_candidate"] = presale_endpoint
 analysis["presale_option_reservation"] = focus
 print("PRESALE_OPTION", json.dumps(focus, ensure_ascii=False), flush=True)
 
